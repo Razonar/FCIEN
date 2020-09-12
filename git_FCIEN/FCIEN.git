@@ -1,0 +1,49 @@
+#!/bin/sh
+# FCIEN: CALL_BASH c:\Users\razon\Dropbox\FCIEN\FCIEN.GIT i
+
+echo
+echo "------------------------------"
+echo "Geometría de curvas y superficies 2020"
+echo "------------------------------"
+echo
+
+cd 'c:\Users\razon\Dropbox\FCIEN\'
+
+# INICIAR CONSOLA, HACER: CALL_BASH NNN.GIT i y LUEGO CON o
+
+if test "$@" = 'i' ; then
+
+    echo
+    echo "As Input: add origin & pull"
+    echo "------------------------------"
+
+    git init
+
+	git config --global user.name "Razonar"
+    git config --global user.email "razonar@outlook.com"
+    git config credential.helper store
+#   git config credential.helper 'cache --timeout=3600'
+
+    git remote add origin 'https://github.com/Razonar/FCIEN.git'
+    git pull --rebase origin master 
+
+fi
+
+if test "$@" = 'o' ; then
+
+    echo
+	echo "As output: add, commit, push"
+    echo "------------------------------"
+
+    git init
+	git add .
+	git add -u
+	git commit -m "Go up"
+    git push -u origin master
+
+fi
+
+    echo "End"
+    echo "------------------------------"
+
+
